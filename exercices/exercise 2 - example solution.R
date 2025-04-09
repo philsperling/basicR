@@ -4,6 +4,7 @@ library(readxl)
 data <- read.csv("diabetes.csv")
 
 # Task 1: set all colnames to lower case 
+# (Tip: use colnames() or names() with tolower() and consider using dplyr)
 library(dplyr)
 data <- data %>%
   rename_all(tolower)
@@ -12,11 +13,15 @@ data <- data %>%
 library(summarytools)
 view(dfSummary(data))
 
-# Task 3: Remove patients who smoke, have a BMI>30, or has hearth disease and remove the columns you just removed data from
+# Task 3: Remove patients who smoke, have a BMI > 30, or have heart disease.
+# Then, remove the columns used for filtering.
 healthy <- data[data$smoker==0 & data$bmi<=30 & data$heartdiseaseorattack==0,]
 healthy <- subset(healthy, select = -c(smoker,heartdiseaseorattack))
 
-# Task 4: change genhlth(<=4),income(=8), and age(median split) to binary
+# Task 4: Recode the following variables to binary:
+# - genhlth: 1 if <= 4, 0 otherwise
+# - income: 1 if equal to 8, 0 otherwise
+# - age: 1 if age is above the median, 0 otherwise
 healthy$genhlth_binary <- ifelse(healthy$genhlth<=4,0,1)
 healthy$rich <- ifelse(healthy$income==8,1,0)
 median_age <- median(healthy$age)

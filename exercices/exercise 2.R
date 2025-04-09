@@ -1,13 +1,22 @@
 ### Cleaning up data
 #If you have issues with exercise 1, use this command: 
+library(readxl)
+data <- read.csv("diabetes.csv")
 
 # Task 1: set all colnames to lower case 
+# (Tip: use colnames() or names() with tolower() and consider using dplyr)
 
 # Task 2: Get an overview of the dataset
+library(summarytools)
+view(dfSummary(data))
 
-# Task 3: Remove patients who smoke, have a BMI>30, or has hearth disease and remove the columns you just removed data from
+# Task 3: Remove patients who smoke, have a BMI > 30, or have heart disease.
+# Then, remove the columns used for filtering.
 
-# Task 4: change genhlth(<=4),income(=8), and age(median split) to binary
+# Task 4: Recode the following variables to binary:
+# - genhlth: 1 if <= 4, 0 otherwise
+# - income: 1 if equal to 8, 0 otherwise
+# - age: 1 if age is above the median, 0 otherwise
 
 # Task 5: make diabetes into a factor: 
 
