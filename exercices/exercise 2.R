@@ -18,7 +18,7 @@ view(dfSummary(data))
 # - income: 1 if equal to 8, 0 otherwise
 # - age: 1 if age is above the median, 0 otherwise
 
-# Task 5: make diabetes into a factor: 
+# Task 5: make diabetes_012 into a factor: 
 
 ### Visualization 
 # Task 6: Make a histogram of age
@@ -26,3 +26,4 @@ view(dfSummary(data))
 # Task 7: Make a boxplot of age grouped by diabetes status 
 
 # Task 8: make a scatterplot of age and parity, grouped by case status from the infert data set
+
